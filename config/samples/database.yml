@@ -1,0 +1,19 @@
+defaults: &defaults
+  adapter: postgresql
+  host: 127.0.0.1
+  port: 5432
+  encoding: unicode
+  pool: 25
+  username: 
+  password: 
+
+development:
+  <<: *defaults
+  database: shopify_dev
+
+test: &test
+  <<: *defaults
+  database: shopify_test
+
+production:
+  uri: <%= ENV['DATABASE_URL'] %>
